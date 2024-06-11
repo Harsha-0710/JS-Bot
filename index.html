@@ -23,14 +23,17 @@
                   </span>
                 </label>
               </div>
-            <p class="chat-msg" id="p1">Hii There!!</p>
+            <p class="chat-msg" id="p1">Hai There!!</p>
             <p class="chat-msg" id="p2">Welcome To Arasu Engineering College</p>
             <p class="chat-msg" id="p3">How can I assist you?</p>
         </div>
     <button id="chat-btn" onclick="openchat()"></button>
     <style>
         body{
-    background-image: url(./images/background.jpg);
+        background-image: url(./images/background.jpg);
+        background-size: cover;
+          background-repeat: no-repeat;
+      background-position: center
   }
   #main{
     display: flex;
@@ -309,6 +312,13 @@
       box-shadow: 1px 1px 1px 1px black;
       color: black;
   }
+@media (max-width: 767px) {
+  body {
+    background-size: contain; 
+  }
+    #main{
+        height:100%;
+}
   
     </style>
   
@@ -762,7 +772,7 @@ function chat(){
 
             var user_msg = document.createElement('p');
             user_msg.textContent = "You asked for Auditoriums";
-            user_msg.setAttribute("class","chat-msg");
+            user_msg.setAttribute("id","usertext");
             maindiv.appendChild(user_msg);
 
             var Halls = document.createElement('p');
@@ -1217,7 +1227,7 @@ function chat(){
             li.textContent = contact;
             ul.appendChild(li);
         });
-        ul.setAttribute("class","chat-msg");
+        ul.setAttribute("class","list");
         if(voice.checked){
             let speech1 = new SpeechSynthesisUtterance(admin.textContent);
             window.speechSynthesis.speak(speech1);
